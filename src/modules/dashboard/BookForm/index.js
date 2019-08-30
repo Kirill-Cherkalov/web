@@ -4,23 +4,23 @@ import { Formik, Field, ErrorMessage } from 'formik';
 
 import InputError from 'components/InputError';
 
-import validationUserSchema from './yup.schemas';
+import validationSchema from './yup.schemas';
 import * as S from './styled';
 
-const AuthForm = ({ onSubmit }) => (
+const BookForm = ({ onSubmit }) => (
   <Formik
-    initialValues={{ username: '', password: '' }}
-    validationSchema={validationUserSchema}
+    initialValues={{ name: '', price: 0 }}
+    validationSchema={validationSchema}
     onSubmit={onSubmit}
   >
     {({ isSubmitting }) => (
       <S.FormikForm>
-        <Field name="username" placeholder="username" />
-        <ErrorMessage name="username">
+        <Field name="name" placeholder="Book name" />
+        <ErrorMessage name="name">
           {InputError}
         </ErrorMessage>
-        <Field type="password" name="password" placeholder="password" />
-        <ErrorMessage name="password">
+        <Field type="number" name="price" placeholder="Book price" />
+        <ErrorMessage name="price">
           {InputError}
         </ErrorMessage>
         <button type="submit" disabled={isSubmitting}>
@@ -31,8 +31,8 @@ const AuthForm = ({ onSubmit }) => (
   </Formik>
 );
 
-AuthForm.propTypes = {
+BookForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default AuthForm;
+export default BookForm;

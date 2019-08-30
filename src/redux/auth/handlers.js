@@ -58,6 +58,7 @@ export const registerSuccess = state => ({
 export const registerFailure = (state, { payload }) => ({
   ...state,
   isLoading: false,
+  authenticated: false,
   error: getErrorMessage(payload.error),
 });
 
