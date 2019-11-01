@@ -17,7 +17,7 @@ const AuthPage = ({ history, location }) => {
 
   useEffect(() => {
     if (authenticated) {
-      history.push('/');
+      history.replace('/');
     }
   });
 
